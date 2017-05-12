@@ -5,6 +5,7 @@ import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -72,7 +73,7 @@ public class RegionActivity extends AppCompatActivity implements RecyclerAdapter
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_region);
         Intent intent = getIntent();
 
@@ -197,7 +198,9 @@ public class RegionActivity extends AppCompatActivity implements RecyclerAdapter
             mapsQueue.remove(maps.get(position));
         }
         maps.get(position).setMaxSize(-1);
+        maps.get(position).setProgressSize(-1);
         adapter.notifyDataSetChanged();
+
     }
 
 
@@ -304,6 +307,13 @@ public class RegionActivity extends AppCompatActivity implements RecyclerAdapter
                         }
                     } else {
                         toast(handler, "Downloading of " + MapParser.up(map.getName()) + " has been aborted");
+                        handler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                progressBarDownloading.setProgress(0);
+                                textViewDownloadedSize.setText("0");
+                            }
+                        });
                         return;
                     }
                 }

@@ -55,7 +55,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/textMargin"
                     android:layout_toStartOf="@+id/textViewPercents"
-                    android:text="34"
+                    android:text="0"
                     android:textColor="@color/colorRowText"
                     android:textSize="@dimen/rowTextSize"
                     android:textStyle="bold" />

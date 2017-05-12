@@ -1,6 +1,7 @@
 package savitskiy.com.osmandapp.activities;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Environment;
 import android.os.StatFs;
 import android.support.v7.app.AppCompatActivity;
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.C
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_main);
         setTitle(R.string.activity_download_maps_name);
 
@@ -54,12 +56,14 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.C
 
         textViewFreeMemorySize.setText(String.format("%.2f", freeSizeInGig));
 
-        MapParser.MyHandler myHandler = new MapParser.MyHandler();
+        MapParser mapParser = new MapParser();
 
         InputStream is = null;
         try {
             is = getAssets().open("countries.xml");
-            maps = MapParser.getContinents(is, myHandler);
+            if(maps==null) {
+                maps = mapParser.getContinents(is);
+            }
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
         } catch (SAXException e) {

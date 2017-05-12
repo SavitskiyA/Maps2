@@ -22,15 +22,23 @@ import savitskiy.com.osmandapp.models.State;
 import savitskiy.com.osmandapp.models.SubRegion;
 
 public class MapParser {
-    private  static SAXParserFactory saxParserFactory;
-    private  static SAXParser saxParser;
-    private static List<Map> maps = new ArrayList<>();
+    private SAXParserFactory saxParserFactory;
+    private SAXParser saxParser;
+    private List<Map> maps = new ArrayList<>();
+    private MyHandler handler;
 
-    public static List<Map> getContinents(InputStream is, MyHandler handler) throws IOException, SAXException, ParserConfigurationException {
+    public MapParser() {
+        MyHandler myHandler = new MyHandler();
+        this.handler=myHandler;
+    }
+
+    public List<Map> getContinents(InputStream is)throws IOException,SAXException,ParserConfigurationException
+
+    {
         return defineMapFileName(parse(is, handler));
     }
 
-    private  static List<Map> parse(InputStream is, MyHandler handler)
+    private List<Map> parse(InputStream is, MyHandler handler)
             throws ParserConfigurationException, SAXException, IOException {
         saxParserFactory = SAXParserFactory.newInstance();
         saxParser = saxParserFactory.newSAXParser();
@@ -38,7 +46,7 @@ public class MapParser {
         return maps;
     }
 
-    public static class MyHandler extends DefaultHandler {
+    public class MyHandler extends DefaultHandler {
         private Stack<Map> stack = new Stack<>();
 
         @Override
@@ -56,7 +64,7 @@ public class MapParser {
             }
         }
 
-        private static Map getObjectFromXML(Stack<Map> stack, Attributes attributes) throws SAXException {
+        private Map getObjectFromXML(Stack<Map> stack, Attributes attributes) throws SAXException {
             String name = attributes.getValue("name");
             String map = attributes.getValue("map");
             String type = attributes.getValue("type");
@@ -106,12 +114,12 @@ public class MapParser {
 
     }
 
-    private static List<Map> defineMapFileName(List<Map> maps) {
+    private List<Map> defineMapFileName(List<Map> maps) {
         setFileName(maps);
         return maps;
     }
 
-    private static void setFileName(List<Map> maps) {
+    private void setFileName(List<Map> maps) {
         for (int i = 0; i < maps.size(); i++) {
             if (maps.get(i).getChildRegions().size() != 0) {
                 setFileName(maps.get(i).getChildRegions());
@@ -126,14 +134,14 @@ public class MapParser {
 
     }
 
-    private static String constructMapFileName(Map map) {
+    private String constructMapFileName(Map map) {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(getPreffix(map)).append(map.getName()).append(getSuffix(map))
                 .append("_2.obf.zip");
         return up(stringBuilder.toString());
     }
 
-    private static String getPreffix(Map map) {
+    private String getPreffix(Map map) {
         if (map.getDownload_prefix() == null) {
             return getParentPreffix(map.getParent());
         } else {
@@ -141,7 +149,7 @@ public class MapParser {
         }
     }
 
-    private static String getParentPreffix(Map map) {
+    private String getParentPreffix(Map map) {
         if (map.getDownload_prefix() != null && !(map.getDownload_prefix().equalsIgnoreCase(""))) {
             return map.getDownload_prefix() + "_";
         } else if (map.getInner_download_prefix() != null) {
@@ -156,7 +164,7 @@ public class MapParser {
 
     }
 
-    private static String getSuffix(Map map) {
+    private String getSuffix(Map map) {
         if (map.getDownload_suffix() == null) {
             return getParentSuffix(map.getParent());
         } else {
@@ -164,7 +172,7 @@ public class MapParser {
         }
     }
 
-    private static String getParentSuffix(Map map) {
+    private String getParentSuffix(Map map) {
         if (map.getDownload_suffix() != null && !(map.getDownload_suffix().equalsIgnoreCase(""))) {
             return "_" + map.getDownload_suffix();
         } else if (map.getInner_download_suffix() != null) {
