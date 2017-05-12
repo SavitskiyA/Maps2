@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="rowTextSize">16sp</dimen>
+    <dimen name="dialogSmallTextSize">14sp</dimen>
+    <dimen name="dialogLargeTextSize">22sp</dimen>
+    <dimen name="rowHight">52dp</dimen>
+    <dimen name="rowMargin">1dp</dimen>
+    <dimen name="textMargin">3dp</dimen>
+    <dimen name="smallMargin">2dp</dimen>
+    <dimen name="mainMargin">16dp</dimen>
+    <dimen name="topMargin">12dp</dimen>
+    <dimen name="largeMaegin">28dp</dimen>
+    <dimen name="doubleMainMargin">32dp</dimen>
+
+</resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="colorAppBar">#ff8800</color>
+    <color name="colorProgressBarBackground">#ffd399</color>
+    <color name="colorStatusBar">#e68200</color>
+    <color name="colorActivityBackground">#eaeaea</color>
+    <color name="colorRowBackground">#ffffff</color>
+    <color name="colorRowSeparator">#e5e5e5</color>
+    <color name="colorRowText">#212121</color>
+    <color name="colorRowIcon">#727272</color>
+
+</resources>

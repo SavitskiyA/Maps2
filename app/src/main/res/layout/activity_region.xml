@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="savitskiy.com.osmandapp.activities.RegionActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.75"
+        android:background="@color/colorActivityBackground"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorRowBackground"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/mainMargin"
+                android:layout_marginRight="@dimen/mainMargin"
+                android:layout_marginTop="@dimen/topMargin">
+
+                <TextView
+                    android:id="@+id/textViewDownloading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:text="@string/downloading"
+                    android:textColor="@color/colorRowText"
+                    android:textSize="@dimen/rowTextSize" />
+
+
+                <TextView
+                    android:id="@+id/textViewDownloadingRegion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/textMargin"
+                    android:layout_toEndOf="@+id/textViewDownloading"
+                    android:text="Berlin"
+                    android:textColor="@color/colorRowText"
+                    android:textSize="@dimen/rowTextSize" />
+
+                <TextView
+                    android:id="@+id/textViewDownloadedSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/textMargin"
+                    android:layout_toStartOf="@+id/textViewPercents"
+                    android:text="34"
+                    android:textColor="@color/colorRowText"
+                    android:textSize="@dimen/rowTextSize"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textViewPercents"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="@string/percents"
+                    android:textColor="@color/colorRowText"
+                    android:textSize="@dimen/rowTextSize" />
+            </RelativeLayout>
+
+
+            <ProgressBar
+                android:id="@+id/progressBarDownloading"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="18dp"
+                android:layout_marginBottom="@dimen/topMargin"
+                android:layout_marginLeft="@dimen/mainMargin"
+                android:layout_marginRight="@dimen/mainMargin"
+                android:layout_marginTop="8dp"
+                android:progressDrawable="@drawable/custom_progressbar" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.16"
+        android:orientation="vertical">
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+</LinearLayout>

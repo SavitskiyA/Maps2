@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/rowHight">
+
+        <ImageView
+            android:id="@+id/imageViewLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/mainMargin"
+            android:background="@drawable/ic_world_globe_dark" />
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/frameLayout"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="@dimen/mainMargin"
+            android:layout_marginLeft="@dimen/mainMargin"
+            android:layout_marginRight="0dp"
+            android:layout_marginStart="@dimen/mainMargin"
+            android:layout_marginTop="0dp"
+            android:layout_toEndOf="@+id/imageViewLeft"
+            android:text="Europa"
+            android:textColor="@color/colorRowText"
+            android:textSize="@dimen/rowTextSize" />
+
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/frameLayout"
+            android:layout_alignStart="@+id/textView"
+            android:layout_marginBottom="7dp"
+            android:layout_marginEnd="@dimen/mainMargin"
+            android:layout_toStartOf="@+id/rigthFrameLayout"
+            android:visibility="gone" />
+
+
+        <FrameLayout
+            android:id="@+id/frameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/textView"
+            android:background="@color/colorRowSeparator">
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/frameLayout"
+            android:layout_alignParentStart="true">
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/rigthFrameLayout"
+            android:layout_width="@dimen/rowHight"
+            android:layout_height="@dimen/rowHight"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            >
+
+            <ImageView
+                android:id="@+id/imageViewRight"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/ic_action_import" />
+        </FrameLayout>
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

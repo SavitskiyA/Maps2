@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">OsmandTaskApp</string>
+    <string name="activity_download_maps_name">Download maps</string>
+    <string name="memoryDimension">GB</string>
+    <string name="percents">%</string>
+    <string name="downloading">Downloading</string>
+    <string name="downloading_aborted">Uploading aborted</string>
+    <string name="file_downloaded">been successfully downloaded</string>
+    <string name="error">Error:</string>
+    <string name="alertDialogTitle">Alert</string>
+    <string name="alertDialogMsg">If you leave activity, all current downloads would be canceled. Do you accept it?</string>
+
+</resources>

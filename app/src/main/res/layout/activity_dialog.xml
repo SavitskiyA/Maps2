@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/mainMargin"
+        android:layout_marginTop="@dimen/mainMargin"
+        android:text="Downloads"
+        android:textColor="@color/colorRowText"
+        android:textSize="@dimen/dialogLargeTextSize" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/rowHight"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textViewTitle"
+        android:layout_marginTop="@dimen/doubleMainMargin"
+        android:layout_marginBottom="@dimen/mainMargin"
+        android:orientation="horizontal"
+        android:id="@+id/linearLayout">
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/mainMargin"
+            android:layout_weight="0.7">
+
+            <TextView
+                android:id="@+id/textViewRegion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Berlin"
+                android:textColor="@color/colorRowText"
+                android:textSize="@dimen/rowTextSize" />
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/textViewRegion"
+                android:layout_below="@+id/textViewRegion"
+                android:layout_marginTop="@dimen/textMargin">
+
+
+                <TextView
+                    android:id="@+id/textViewDownloaded"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="150"
+                    android:textSize="@dimen/dialogSmallTextSize" />
+
+                <TextView
+                    android:id="@+id/textViewMBFrom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/textMargin"
+                    android:layout_toEndOf="@id/textViewDownloaded"
+                    android:text="Mb from"
+                    android:textSize="@dimen/dialogSmallTextSize" />
+
+
+                <TextView
+                    android:id="@+id/textViewFileSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/textMargin"
+                    android:layout_toEndOf="@id/textViewMBFrom"
+                    android:text="520"
+                    android:textSize="@dimen/dialogSmallTextSize" />
+
+                <TextView
+                    android:id="@+id/textViewMBFileSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/textMargin"
+                    android:layout_toEndOf="@id/textViewFileSize"
+                    android:text="Mb"
+                    android:textSize="@dimen/dialogSmallTextSize" />
+
+
+                <ProgressBar
+                    android:id="@+id/progressBarDownloadedSize"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/textViewDownloaded"
+                    android:layout_below="@+id/textViewDownloaded" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+
+        <FrameLayout
+            android:id="@+id/frameLayout2"
+            android:layout_width="@dimen/rowHight"
+            android:layout_height="@dimen/rowHight"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/mainMargin">
+
+            <ImageView
+                android:id="@+id/imageViewCancel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/ic_action_remove_dark" />
+        </FrameLayout>
+
+    </LinearLayout>
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/linearLayout">
+
+    <FrameLayout
+        android:id="@+id/frameLayout3"
+        android:layout_width="@dimen/rowHight"
+        android:layout_height="@dimen/rowHight"
+        android:layout_marginEnd="@dimen/largeMaegin"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true">
+
+        <TextView
+            android:id="@+id/textViewClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="@dimen/dialogSmallTextSize"
+            android:text="CLOSE"
+            android:textColor="@color/colorPrimary"/>
+    </FrameLayout>
+</RelativeLayout>
+
+</RelativeLayout>
